@@ -1,6 +1,7 @@
 package com.example.cardapio.food;
 
 
+import com.example.cardapio.controller.FoodRequestDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,4 +21,14 @@ public class Food {
     private String image;
 
     private Integer price;
+
+    // Construtor para a classe conseguir receber os dados que vem do usuário na Controller,
+    // do metódo saveFood
+    public Food(FoodRequestDTO data) {
+        this.title = data.title();
+        this.image = data.image();
+        this.price = data.price();
+    }
+
+
 }
